@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.ccsu.edu/~neli/animals.owl#"
+     xml:base="http://www.cs.ccsu.edu/~neli/animals.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#breed -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#breed"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#hasOwner">
+        <owl:inverseOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#owns"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#owns -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#owns"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#name"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#registeredName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#registeredName">
+        <rdfs:subPropertyOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#name"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Breed -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Breed">
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Canine -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Canine">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#breed"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Breed"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Human -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Human">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#LargeBreed -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#LargeBreed">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Breed"/>
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#SmallBreed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Mammal -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#PetOfRyan -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#PetOfRyan">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#hasOwner"/>
+                        <owl:hasValue rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Ryan"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#SmallBreed -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#SmallBreed">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Breed"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Amber -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Amber">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Mammal"/>
+        <breed rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#GoldenRetriever"/>
+        <name>Amber</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Chihuahua -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Chihuahua">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#SmallBreed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Daisy -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Daisy">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Canine"/>
+        <breed rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#GoldenRetriever"/>
+        <name>Daisy</name>
+        <registeredName>Morning Daisy</registeredName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#GoldenRetriever -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#GoldenRetriever">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#LargeBreed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/animals.owl#Ryan -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/animals.owl#Ryan">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Human"/>
+        <owns rdf:resource="http://www.cs.ccsu.edu/~neli/animals.owl#Daisy"/>
+        <name>Ryan Blace</name>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

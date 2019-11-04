@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.ccsu.edu/~neli/university.owl#"
+     xml:base="http://www.cs.ccsu.edu/~neli/university.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.cs.ccsu.edu/~neli/university.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#helpsWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#helpsWith">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#LabAssistant"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#isOfferedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#isOfferedBy">
+        <owl:inverseOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#offers"/>
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#isUsedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#isUsedBy">
+        <owl:inverseOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#uses"/>
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#offers -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#offers">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#studies -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#studies">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#teaches -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#teaches">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Professor"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#uses -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#uses">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#e-mail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#e-mail">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#firstName">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#lastName">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#publisher -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#publisher">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#staffID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#staffID">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#studentID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#studentID">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#title">
+        <rdfs:domain rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Book -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Course -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Course">
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Department -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#LabAssistant -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#LabAssistant">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Staff"/>
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Professor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#LabManual -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#LabManual">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Textbook"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Person -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Professor -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Professor">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Staff -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Staff">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+        <owl:disjointWith rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Student -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Student">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Textbook -->
+
+    <owl:Class rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Textbook">
+        <rdfs:subClassOf rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Anna -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Anna">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+        <studies rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Math101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Bob -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Bob">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Student"/>
+        <studies rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#CS101"/>
+        <studies rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Math101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#CS101 -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#CS101">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#CSDepartment -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#CSDepartment">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+        <offers rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#CS101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Jones -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Jones">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Professor"/>
+        <teaches rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Math101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#Math101 -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Math101">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.ccsu.edu/~neli/university.owl#MathDepartment -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#MathDepartment">
+        <rdf:type rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+        <offers rdf:resource="http://www.cs.ccsu.edu/~neli/university.owl#Math101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Book"/>
+            <rdf:Description rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Course"/>
+            <rdf:Description rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Department"/>
+            <rdf:Description rdf:about="http://www.cs.ccsu.edu/~neli/university.owl#Person"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

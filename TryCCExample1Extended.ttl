@@ -1,0 +1,28 @@
+
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix univ: <http://www.cs.ccsu.edu/~neli/university.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+univ:Lecturer1 a univ:Professor .
+univ:Professor rdfs:subClassOf univ:Staff .
+univ:Lecturer1 vcard:title   "PhD" ;
+                            univ:teaches univ:CS101 ;
+                            univ:firstName "Mark" ;
+                            univ:lastName "Kain" .
+univ:Lecturer2 vcard:title "Doctor" ;
+                           univ:teaches "CS 202" ;
+                           univ:teaches "CS 101" ;
+                           vcard:family-name "Novac" .
+univ:Lecturer3 rdf:type univ:Lecturer ;
+                           vcard:given-name   "John" ;
+                           vcard:family-name  "Homes";
+                           vcard:title "Doctor" ;
+                           univ:teaches "CS 303" .
+univ:book1 rdf:type univ:Textbook ;
+                     dc:title "Intro to CS" .
+univ:CS101 a univ:Course.				 
+univ:CS101 univ:uses univ:book1 .
