@@ -1,0 +1,423 @@
+@prefix : <http://www.cs.ccsu.edu/~neli/university.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.cs.ccsu.edu/~neli/university.owl> .
+
+<http://www.cs.ccsu.edu/~neli/university.owl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/knows
+<http://xmlns.com/foaf/0.1/knows> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/nick
+<http://xmlns.com/foaf/0.1/nick> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#helpsWith
+:helpsWith rdf:type owl:ObjectProperty ;
+           rdfs:domain :LabAssistant ;
+           rdfs:range :Course .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#isOfferedBy
+:isOfferedBy rdf:type owl:ObjectProperty ;
+             owl:inverseOf :offers ;
+             rdfs:domain :Course ;
+             rdfs:range :Department .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#isUsedBy
+:isUsedBy rdf:type owl:ObjectProperty ;
+          owl:inverseOf :uses ;
+          rdfs:domain :Book ;
+          rdfs:range :Course .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#offers
+:offers rdf:type owl:ObjectProperty ;
+        rdfs:domain :Department ;
+        rdfs:range :Course .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#studies
+:studies rdf:type owl:ObjectProperty ;
+         rdfs:domain :Student ;
+         rdfs:range :Course .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#teaches
+:teaches rdf:type owl:ObjectProperty ;
+         rdfs:domain :Professor ;
+         rdfs:range :Course .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#uses
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:domain :Course ;
+      rdfs:range :Book .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#e-mail
+:e-mail rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#firstName
+:firstName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Person ;
+           rdfs:range xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#lastName
+:lastName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Person ;
+          rdfs:range xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#publisher
+:publisher rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Book ;
+           rdfs:range xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#staffID
+:staffID rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#studentID
+:studentID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Student ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Book ;
+       rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Book
+:Book rdf:type owl:Class .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Course
+:Course rdf:type owl:Class ;
+        owl:disjointWith :Student .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Department
+:Department rdf:type owl:Class .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#LabAssistant
+:LabAssistant rdf:type owl:Class ;
+              rdfs:subClassOf :Staff ;
+              owl:disjointWith :Professor .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#LabManual
+:LabManual rdf:type owl:Class ;
+           rdfs:subClassOf :Book ;
+           owl:disjointWith :Textbook .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Professor
+:Professor rdf:type owl:Class ;
+           rdfs:subClassOf :Staff .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Staff
+:Staff rdf:type owl:Class ;
+       rdfs:subClassOf :Person ;
+       owl:disjointWith :Student .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Textbook
+:Textbook rdf:type owl:Class ;
+          rdfs:subClassOf :Book .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Anderson
+:Anderson rdf:type owl:NamedIndividual ,
+                   :Professor ;
+          :teaches :Geog110 ;
+          :firstName "Andrea" ;
+          :lastName "Anderson" ;
+          :staffID 146598 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Anna
+:Anna rdf:type owl:NamedIndividual ,
+               :Student ;
+      :studies :Math101 ;
+      :e-mail "aelton@university.com" ;
+      :firstName "Anna" ;
+      :lastName "Elton" ;
+      :studentID 30399862 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Basic_Math_Concepts
+:Basic_Math_Concepts rdf:type owl:NamedIndividual ,
+                              :Book ;
+                     :isUsedBy :Math101 ;
+                     :publisher "Pearsun" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Bob
+:Bob rdf:type owl:NamedIndividual ,
+              :Student ;
+     :studies :CS101 ,
+              :Math101 ;
+     :firstName "Bob" ;
+     :lastName "Morlan" ;
+     :studentID 30090251 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CS101
+:CS101 rdf:type owl:NamedIndividual ,
+                :Course ;
+       :uses :Introduction_to_Computer_Science .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CS151
+:CS151 rdf:type owl:NamedIndividual ,
+                :Course ;
+       :uses :Introduction_to_Java .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CSDepartment
+:CSDepartment rdf:type owl:NamedIndividual ,
+                       :Department ;
+              :offers :CS101 ,
+                      :CS151 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Charles
+:Charles rdf:type owl:NamedIndividual ,
+                  :Student ;
+         :studies :Math115 ;
+         :firstName "Charles" ;
+         :lastName "Matal" ;
+         :studentID 30113563 ;
+         <http://xmlns.com/foaf/0.1/knows> :Curtis ;
+         <http://xmlns.com/foaf/0.1/nick> "Chip" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Curtis
+:Curtis rdf:type owl:NamedIndividual ,
+                 :Student ;
+        :studies :Geog110 ;
+        :firstName "Curtis" ;
+        :lastName "Keyon" ;
+        :studentID 30898024 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Erika
+:Erika rdf:type owl:NamedIndividual ,
+                :Student ;
+       :studies :CS151 ;
+       :e-mail "evogel@my.ccsu.edu" ;
+       :firstName "Erika" ;
+       :lastName "Vogel" ;
+       :studentID 30294953 ;
+       <http://xmlns.com/foaf/0.1/knows> :Jakob ,
+                                         :Kathleen ,
+                                         :Richard .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Geog110
+:Geog110 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :uses :Geography_Introduction .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#GeographyDepartment
+:GeographyDepartment rdf:type owl:NamedIndividual ,
+                              :Department ;
+                     :offers :Geog110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Geography_Introduction
+:Geography_Introduction rdf:type owl:NamedIndividual ,
+                                 :Book ;
+                        :isUsedBy :Geog110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Harrison
+:Harrison rdf:type owl:NamedIndividual ,
+                   :Student ;
+          :studies :CS101 ,
+                   :Math101 ;
+          :e-mail "hbeck@university.com" ;
+          :firstName "Harrison" ;
+          :lastName "Beck" ;
+          :studentID 30273989 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Introduction_to_Computer_Science
+:Introduction_to_Computer_Science rdf:type owl:NamedIndividual ,
+                                           :Book ;
+                                  :isUsedBy :CS101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Introduction_to_Java
+:Introduction_to_Java rdf:type owl:NamedIndividual ,
+                               :Book ;
+                      :isUsedBy :CS151 ;
+                      :publisher "Walrus House" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Introduction_to_Trigonometry
+:Introduction_to_Trigonometry rdf:type owl:NamedIndividual ,
+                                       :Book ;
+                              :isUsedBy :Math115 ;
+                              :publisher "Leftright Publishers" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jakob
+:Jakob rdf:type owl:NamedIndividual ,
+                :Student ;
+       :firstName "Jakob" ;
+       :lastName "Hauk" ;
+       :studentID 30400023 ;
+       <http://xmlns.com/foaf/0.1/knows> :Erika ;
+       <http://xmlns.com/foaf/0.1/nick> "Jake" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jones
+:Jones rdf:type owl:NamedIndividual ,
+                :Professor ;
+       :teaches :Math101 ;
+       :firstName "Sara" ;
+       :lastName "Jones" ;
+       :staffID 190034 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Kathleen
+:Kathleen rdf:type owl:NamedIndividual ,
+                   :Student ;
+          :studies :Geog110 ;
+          :firstName "Kathleen" ;
+          :lastName "Marlins" ;
+          :studentID 30412278 ;
+          <http://xmlns.com/foaf/0.1/knows> :Erika ;
+          <http://xmlns.com/foaf/0.1/nick> "Kat" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Malcolm
+:Malcolm rdf:type owl:NamedIndividual ,
+                  :Student ;
+         :firstName "Malcolm" ;
+         :lastName "Peller" ;
+         :studentID 30322123 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Math101
+:Math101 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :uses :Basic_Math_Concepts .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Math115
+:Math115 rdf:type owl:NamedIndividual ,
+                  :Course ;
+         :uses :Introduction_to_Trigonometry .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#MathDepartment
+:MathDepartment rdf:type owl:NamedIndividual ,
+                         :Department ;
+                :offers :Math101 ,
+                        :Math115 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Reilly
+:Reilly rdf:type owl:NamedIndividual ,
+                 :Professor ;
+        :teaches :Math115 ;
+        :e-mail "preilly@university.com" ;
+        :firstName "Patrick" ;
+        :lastName "Reilly" ;
+        :staffID 177878 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Richard
+:Richard rdf:type owl:NamedIndividual ,
+                  :Student ;
+         :studies :CS151 ,
+                  :Math115 ;
+         :e-mail "rdane@university.com" ;
+         :firstName "Richard" ;
+         :lastName "Dane" ;
+         :studentID 30987654 ;
+         <http://xmlns.com/foaf/0.1/knows> :Erika ;
+         <http://xmlns.com/foaf/0.1/nick> "Richie" .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Roberts
+:Roberts rdf:type owl:NamedIndividual ,
+                  :Professor ;
+         :teaches :CS101 ;
+         :firstName "Jean" ;
+         :lastName "Roberts" ;
+         :staffID 145884 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Tell
+:Tell rdf:type owl:NamedIndividual ,
+               :Professor ;
+      :teaches :CS151 ;
+      :e-mail "dtell@university.com" ;
+      :firstName "Daniel" ;
+      :lastName "Tell" ;
+      :staffID 123123 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Book
+                :Course
+                :Department
+                :Person
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

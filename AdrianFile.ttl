@@ -1,0 +1,208 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix univ: <http://www.cs.ccsu.edu/~neli/university.owl#> .
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Adrian
+univ:Adrian rdf:type owl:NamedIndividual ,
+                     univ:Student ;
+            univ:studies univ:CS101 ,
+                         univ:Math101 ;
+            univ:e-mail "wardmanthey@my.ccsu.edu"^^xsd:string ;
+            univ:firstName "Adrian"^^xsd:string ;
+            univ:lastName "Ward-Manthey"^^xsd:string ;
+            univ:title "Gradudate Student"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Algebra_I
+univ:Algebra_I rdf:type owl:NamedIndividual ,
+                        univ:Textbook ;
+               univ:isUsedBy univ:Math101 ;
+               univ:publisher "Pearson"^^xsd:string ;
+               univ:title "Algebra 1"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Anna
+univ:Anna rdf:type owl:NamedIndividual ,
+                   univ:Student ;
+          univ:studies univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Billy
+univ:Billy rdf:type owl:NamedIndividual ,
+                    univ:Student ;
+           univ:studies univ:CS105 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Bob
+univ:Bob rdf:type owl:NamedIndividual ,
+                  univ:Student ;
+         univ:studies univ:CS101 ,
+                      univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CS101
+univ:CS101 rdf:type owl:NamedIndividual ,
+                    univ:Course ;
+           univ:isOfferedBy univ:CSDepartment ;
+           univ:uses univ:FoundationsOfComputing .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CS105
+univ:CS105 rdf:type owl:NamedIndividual ,
+                    univ:Course ;
+           univ:isOfferedBy univ:CSDepartment ;
+           univ:uses univ:IntroToWebProgramming ,
+                     univ:WebProgrammingLabs .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#CSDepartment
+univ:CSDepartment rdf:type owl:NamedIndividual ,
+                           univ:Department ;
+                  univ:offers univ:CS101 ,
+                              univ:CS105 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Chelsea
+univ:Chelsea rdf:type owl:NamedIndividual ,
+                      univ:Student ;
+             univ:studies univ:CS105 ,
+                          univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Cleo
+univ:Cleo rdf:type owl:NamedIndividual ,
+                   univ:Student ;
+          univ:studies univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Eng101
+univ:Eng101 rdf:type owl:NamedIndividual ,
+                     univ:Course ;
+            univ:isOfferedBy univ:EnglishDepartment ;
+            univ:uses univ:IntroToAmericanLit .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#EnglishDepartment
+univ:EnglishDepartment rdf:type owl:NamedIndividual ,
+                                univ:Department ;
+                       univ:offers univ:Eng101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#FoundationsOfComputing
+univ:FoundationsOfComputing rdf:type owl:NamedIndividual ,
+                                     univ:Textbook ;
+                            univ:isUsedBy univ:CS101 ;
+                            univ:publisher "Packt"^^xsd:string ;
+                            univ:title "Foundations of Computing"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Gertrude
+univ:Gertrude rdf:type owl:NamedIndividual ,
+                       univ:Student ;
+              univ:studies univ:CS105 ;
+              univ:firstName "Gertrude"^^xsd:string ;
+              univ:lastName "Stein"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Hayley
+univ:Hayley rdf:type owl:NamedIndividual ,
+                     univ:Student ;
+            univ:studies univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Hubert
+univ:Hubert rdf:type owl:NamedIndividual ,
+                     univ:Student ;
+            univ:studies univ:CS105 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#IntroToAmericanLit
+univ:IntroToAmericanLit rdf:type owl:NamedIndividual ,
+                                 univ:Textbook ;
+                        univ:isUsedBy univ:Eng101 ;
+                        univ:publisher "Penguin"^^xsd:string ;
+                        univ:title "Introduction to American Literature"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#IntroToWebProgramming
+univ:IntroToWebProgramming rdf:type owl:NamedIndividual ,
+                                    univ:Textbook ;
+                           univ:isUsedBy univ:CS105 ;
+                           univ:publisher "CCSU"^^xsd:string ;
+                           univ:title "Intro to Web Programming"^^xsd:string .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jeremiah
+univ:Jeremiah rdf:type owl:NamedIndividual ,
+                       univ:Professor ;
+              univ:teaches univ:Eng101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jerry
+univ:Jerry rdf:type owl:NamedIndividual ,
+                    univ:Professor ;
+           univ:teaches univ:Math110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jimmy
+univ:Jimmy rdf:type owl:NamedIndividual ,
+                    univ:Professor ;
+           univ:teaches univ:CS101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jonathan
+univ:Jonathan rdf:type owl:NamedIndividual ,
+                       univ:Professor ;
+              univ:teaches univ:CS105 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Jones
+univ:Jones rdf:type owl:NamedIndividual ,
+                    univ:Professor ;
+           univ:teaches univ:Math101 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Math101
+univ:Math101 rdf:type owl:NamedIndividual ,
+                      univ:Course ;
+             univ:isOfferedBy univ:MathDepartment ;
+             univ:uses univ:Algebra_I .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Math110
+univ:Math110 rdf:type owl:NamedIndividual ,
+                      univ:Course ;
+             univ:isOfferedBy univ:MathDepartment ;
+             univ:uses univ:MathForLiberalArts .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#MathDepartment
+univ:MathDepartment rdf:type owl:NamedIndividual ,
+                             univ:Department ;
+                    univ:offers univ:Math101 ,
+                                univ:Math110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#MathForLiberalArts
+univ:MathForLiberalArts rdf:type owl:NamedIndividual ,
+                                 univ:Textbook ;
+                        univ:isUsedBy univ:Math110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#Ron
+univ:Ron rdf:type owl:NamedIndividual ,
+                  univ:Student ;
+         univ:studies univ:Eng101 ,
+                      univ:Math110 .
+
+
+###  http://www.cs.ccsu.edu/~neli/university.owl#WebProgrammingLabs
+univ:WebProgrammingLabs rdf:type owl:NamedIndividual ,
+                                 univ:LabManual ;
+                        univ:isUsedBy univ:CS105 ;
+                        univ:publisher "CCSU"^^xsd:string ;
+                        univ:title "Web Programming Labs"^^xsd:string .
